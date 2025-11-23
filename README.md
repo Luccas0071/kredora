@@ -48,6 +48,8 @@ Este projeto segue o padrão **Hexagonal Architecture**, onde o domínio é o ce
 ---
 
 ## 📁 **Estrutura de Pastas (Hexagonal)**
+
+```sh
 /src
 ├── domain
 │ ├── entities
@@ -61,7 +63,7 @@ Este projeto segue o padrão **Hexagonal Architecture**, onde o domínio é o ce
 │ ├── adapters
 │ └── config
 └── main.ts
-
+```
 
 - **domain** → Regras de negócio puras  
 - **application** → Entrada/saída (GraphQL), validações  
@@ -83,11 +85,11 @@ npx typeorm migration:create migrations/CreateUser
 ## 🎯 **Objetivo do Projeto**
 
   - Este projeto serve como base para estudo de:
-  - Arquitetura Hexagonal em Node.js
-  - Operações GraphQL
-  - Migrations em bancos SQL
-  - Deploy containerizado
-  - Boas práticas de modularização
+    - Arquitetura Hexagonal em Node.js
+    - Operações GraphQL
+    - Migrations em bancos SQL
+    - Deploy containerizado
+    - Boas práticas de modularização
 
 ## 👨‍💻 **Autor**
 
