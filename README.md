@@ -25,13 +25,13 @@ Este projeto segue o padrão **Hexagonal Architecture**, onde o domínio é o ce
 
 ### 📐 **Visão da Arquitetura**
 
-![Arquitetura](image.png)
+![Arquitetura](./public/image.png)
 
 ---
 
 ## 🔁 **Fluxo Geral do Sistema**
 
-![Diagrama](image-1.png)
+![Diagrama](./public/image-1.png)
 
 ---
 
