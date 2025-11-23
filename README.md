@@ -77,7 +77,13 @@ As migrations são realizadas usando **TypeORM**.
 ### ➕ Criar uma nova migration
 
 ```sh
-npx typeorm migration:create migrations/CreateUser
+npx typeorm migration:create backend/src/shared/migrations/<NameMigration>
+```
+### ➕ Executar novas migrations no container
+
+```sh
+docker exec -it <id_container or name_container> sh
+npx typeorm migration:run -d dist/shared/database/postgresql/datasource.js
 ```
 
 ## 🎯 **Objetivo do Projeto**

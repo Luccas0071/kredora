@@ -4,6 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './modules/user/user.module';
 import { AppDataSource } from './shared/database/postgresql/datasource';
+import { CategoryModule } from './modules/category/category.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { AppDataSource } from './shared/database/postgresql/datasource';
       autoSchemaFile: true,
     }),
     UserModule,
+    CategoryModule,
   ],
   controllers: [],
   providers: [],

@@ -3,7 +3,8 @@ import { config as dotenvConfig } from 'dotenv';
 dotenvConfig(); // carrega .env dentro do CLI
 
 // Entities
-import { UserOrmEntity } from '../../../modules/user/infra/entities/user.orm-entity';
+import { UserOrmEntity } from '../../../modules/user/infrastructure/entities/user.orm-entity';
+import { CategoryOrmEntity } from '../../../modules/category/infrastructure/entities/category.orm-entity';
 
 // Migrations
 const migrationsPath = __dirname + '/../../migrations/*.js';
@@ -16,6 +17,6 @@ export const AppDataSource = new DataSource({
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   synchronize: false,
-  entities: [UserOrmEntity],
+  entities: [UserOrmEntity, CategoryOrmEntity],
   migrations: [migrationsPath],
 });

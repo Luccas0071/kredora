@@ -5,7 +5,9 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  OneToMany,
 } from 'typeorm';
+import { CategoryOrmEntity } from '../../../category/infrastructure/entities/category.orm-entity';
 
 @Entity('users')
 export class UserOrmEntity {
@@ -20,6 +22,9 @@ export class UserOrmEntity {
 
   @Column()
   password: string;
+
+  @OneToMany(() => CategoryOrmEntity, (category) => category.user)
+  categories: CategoryOrmEntity[];
 
   @CreateDateColumn({ name: 'created_at' })
   created_at: Date;

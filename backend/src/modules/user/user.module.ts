@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserOrmEntity } from './infra/entities/user.orm-entity';
+import { UserOrmEntity } from './infrastructure/entities/user.orm-entity';
 import { UserResolver } from './adapters/graphql/user.resolver';
 import { CreateUserUseCase } from './application/use-cases/create-user.usecase';
 import { IUserRepository } from './domain/repositories/user.repository';
-import { UserRepositoryTypeorm } from './infra/repositories/user.repository.typeorm';
+import { UserRepositoryTypeorm } from './infrastructure/repositories/user.repository.typeorm';
 import { ListUserUseCase } from './application/use-cases/list-user.usecase';
 import { FindOneUserUseCase } from './application/use-cases/find-one-user.usecase';
 import { UpdateUserUseCase } from './application/use-cases/update-user.usecase';
