@@ -65,10 +65,10 @@ Este projeto segue o padrão **Hexagonal Architecture**, onde o domínio é o ce
 └── main.ts
 ```
 
-- **domain** → Regras de negócio puras  
-- **application** → Entrada/saída (GraphQL), validações  
-- **infrastructure** → Banco, repositórios, implementações  
-- **main** → Inicialização
+- **adapters** → Entrada/saída (GraphQL), validações.
+- **application** → Valida permissões, orquestra transações.  
+- **domain** → Regras de negócio puras.
+- **infrastructure** → Banco, repositórios, implementações. 
 
 ---
 
