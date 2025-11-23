@@ -48,25 +48,41 @@ Este projeto segue o padrão **Hexagonal Architecture**, onde o domínio é o ce
 ---
 
 ## 📁 **Estrutura de Pastas (Hexagonal)**
+
+```sh
 /src
-├── domain
-│ ├── entities
-│ ├── repositories
-│ └── use-cases
-├── application
-│ ├── graphql
-│ └── services
-├── infrastructure
-│ ├── database
-│ ├── adapters
-│ └── config
-└── main.ts
+├── modules
+│   ├── user
+│   │   ├── domain
+│   │   │   ├── entities
+│   │   │   │   └── user.entity.ts
+│   │   │   ├── repositories
+│   │   │   │   └── user.repository.ts
+│   │   │   └── services (opcional)
+│   │   ├── application
+│   │   │   ├── use-cases
+│   │   │   │   ├── create-user.usecase.ts
+│   │   │   │   ├── update-user.usecase.ts
+│   │   │   │   ├── delete-user.usecase.ts
+│   │   │   │   └── list-user.usecase.ts
+│   │   ├── infrastructure
+│   │   │   ├── entities
+│   │   │   │   └── user.orm-entity.ts
+│   │   │   ├── repositories
+│   │   │   │   └── user.repository.typeorm.ts
+│   │   ├── adapters
+│   │   │   └── graphql
+│   │   │       ├── user.resolver.ts
+│   │   │       ├── user.type.ts
+│   │   │       ├── user.input.ts
+│   │   │       └── schema.graphql
+│   │   └── user.module.ts
+```
 
-
-- **domain** → Regras de negócio puras  
-- **application** → Entrada/saída (GraphQL), validações  
-- **infrastructure** → Banco, repositórios, implementações  
-- **main** → Inicialização
+- **adapters** → Entrada/saída (GraphQL), validações.
+- **application** → Valida permissões, orquestra transações.  
+- **domain** → Regras de negócio puras.
+- **infrastructure** → Banco, repositórios, implementações. 
 
 ---
 
@@ -89,11 +105,11 @@ npx typeorm migration:run -d dist/shared/database/postgresql/datasource.js
 ## 🎯 **Objetivo do Projeto**
 
   - Este projeto serve como base para estudo de:
-  - Arquitetura Hexagonal em Node.js
-  - Operações GraphQL
-  - Migrations em bancos SQL
-  - Deploy containerizado
-  - Boas práticas de modularização
+    - Arquitetura Hexagonal em Node.js
+    - Operações GraphQL
+    - Migrations em bancos SQL
+    - Deploy containerizado
+    - Boas práticas de modularização
 
 ## 👨‍💻 **Autor**
 
