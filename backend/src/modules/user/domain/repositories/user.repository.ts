@@ -1,6 +1,6 @@
 import { User } from '../entities/user.entity';
 
-export abstract class UserRepository {
+export abstract class IUserRepository {
   abstract create(data: { name: string; email: string }): Promise<User>;
   abstract update(id: string, data: Partial<User>): Promise<User>;
   abstract delete(id: string): Promise<boolean>;

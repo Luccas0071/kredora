@@ -1,12 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { UserRepository } from '../../domain/repositories/user.repository';
+import { IUserRepository } from '../../domain/repositories/user.repository';
 import { User } from '../../domain/entities/user.entity';
 
 @Injectable()
 export class DeleteUserUseCase {
   constructor(
-    @Inject(UserRepository)
-    private readonly userRepository: UserRepository,
+    @Inject(IUserRepository)
+    private readonly userRepository: IUserRepository,
   ) {}
 
   async execute(userId: string): Promise<User> {

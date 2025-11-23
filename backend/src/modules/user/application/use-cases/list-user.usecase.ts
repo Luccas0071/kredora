@@ -1,10 +1,10 @@
 import { Inject } from '@nestjs/common';
-import { UserRepository } from '../../domain/repositories/user.repository';
+import { IUserRepository } from '../../domain/repositories/user.repository';
 
 export class ListUserUseCase {
   constructor(
-    @Inject(UserRepository)
-    private readonly repository: UserRepository,
+    @Inject(IUserRepository)
+    private readonly repository: IUserRepository,
   ) {}
 
   execute() {
