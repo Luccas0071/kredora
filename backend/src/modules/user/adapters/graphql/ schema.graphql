@@ -1,0 +1,61 @@
+# Create User
+mutation {
+  createUser(
+    input: {
+      name: "lucas",
+      email: "lucasoliveira719@gmail.com",
+      password: "12345678"
+ 		}
+  ) {
+    id
+    name
+    email
+  }
+}
+
+#Update User
+mutation {
+  updateUser(
+  	input: {
+    	id: "5bf85cc2-fa7a-4ea7-a740-4a848d28a185",
+      name: "lucas oliveira",
+      email: "lucasoliveira719@gmail.com",
+      password: "12345678"
+ 		}
+  ) {
+    id,
+		name,
+    email
+  }
+}
+
+#Delete User
+mutation {
+  removeUser(
+    id: "1859fddc-4d92-42d8-abc4-2c5a97f0daa5"
+  ) {
+    id,
+		name,
+    email
+  }
+}
+
+# Get All user
+query {
+  findAllUser {
+    id
+    name
+    email
+  }
+}
+
+# Get By Id
+query {
+  findOneUser(
+    id: "15a9eb59-91b9-44de-a7c3-cad6ae7da78c"
+  ) {
+    id
+    name
+    email
+  }
+}
