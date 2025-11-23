@@ -51,18 +51,32 @@ Este projeto segue o padrão **Hexagonal Architecture**, onde o domínio é o ce
 
 ```sh
 /src
-├── domain
-│ ├── entities
-│ ├── repositories
-│ └── use-cases
-├── application
-│ ├── graphql
-│ └── services
-├── infrastructure
-│ ├── database
-│ ├── adapters
-│ └── config
-└── main.ts
+├── modules
+│   ├── user
+│   │   ├── domain
+│   │   │   ├── entities
+│   │   │   │   └── user.entity.ts
+│   │   │   ├── repositories
+│   │   │   │   └── user.repository.ts
+│   │   │   └── services (opcional)
+│   │   ├── application
+│   │   │   ├── use-cases
+│   │   │   │   ├── create-user.usecase.ts
+│   │   │   │   ├── update-user.usecase.ts
+│   │   │   │   ├── delete-user.usecase.ts
+│   │   │   │   └── list-user.usecase.ts
+│   │   ├── infrastructure
+│   │   │   ├── entities
+│   │   │   │   └── user.orm-entity.ts
+│   │   │   ├── repositories
+│   │   │   │   └── user.repository.typeorm.ts
+│   │   ├── adapters
+│   │   │   └── graphql
+│   │   │       ├── user.resolver.ts
+│   │   │       ├── user.type.ts
+│   │   │       ├── user.input.ts
+│   │   │       └── schema.graphql
+│   │   └── user.module.ts
 ```
 
 - **adapters** → Entrada/saída (GraphQL), validações.
