@@ -1,187 +1,95 @@
-📘 Kredora — Sistema de Controle Financeiro
+# 📘 Kredora 
+### Sistema de Controle Financeiro com Arquitetura Hexagonal + GraphQL
 
-Projeto criado para estudo da Arquitetura Hexagonal, GraphQL, Next.js, PostgreSQL, TypeORM, Docker e Migrations.
+Projeto desenvolvido para estudo de **Arquitetura Hexagonal**, **GraphQL**, **Next.js**, **PostgreSQL**, **Docker** e **TypeORM**.  
+O objetivo é construir uma estrutura limpa, modular e escalável, aplicando boas práticas arquiteturais no backend e frontend.
 
-📚 Sobre o Projeto
+---
 
-O Kredora é um sistema de controle financeiro desenvolvido com foco em boas práticas arquiteturais e escalabilidade.
-Ele utiliza Arquitetura Hexagonal (Ports & Adapters), com comunicação via GraphQL, e banco de dados PostgreSQL.
+## 📚 **Sobre o Projeto**
 
-O projeto foi criado com o objetivo de praticar:
+O **Kredora** é um sistema de controle financeiro que permite estudar:
 
-Arquitetura Hexagonal aplicada ao backend
+- Arquitetura Hexagonal (Ports & Adapters)
+- GraphQL (queries e mutations)
+- Organização de pastas por domínio
+- Execução de migrations no banco
+- Uso de containers Docker
+- Comunicação entre camadas desacopladas
 
-GraphQL para queries e mutations
+---
 
-Next.js como camada de apresentação
+## 🧱 **Arquitetura do Projeto**
 
-Controle de estado e regras internas bem definidas
+Este projeto segue o padrão **Hexagonal Architecture**, onde o domínio é o centro da aplicação.
 
-Migrations com TypeORM
+### 📐 **Visão da Arquitetura**
 
-Execução em containers Docker
+![Arquitetura](image.png)
 
-🧱 Arquitetura
+---
 
-A aplicação segue o padrão Arquitetura Hexagonal, dividida em:
+## 🔁 **Fluxo Geral do Sistema**
 
-Domain — Regras de negócio, entidades, casos de uso
+![Diagrama](image-1.png)
 
-Application — Orquestra lógica, portas de entrada/saída
+---
 
-Infrastructure — Adapters, banco de dados, repositórios, drivers
+## 🛠️ **Tecnologias Utilizadas**
 
-Interface (Ports) — GraphQL (queries e mutations)
+- **Next.js**
+- **GraphQL**
+- **TypeORM**
+- **PostgreSQL**
+- **Docker / Docker Compose**
+- **Arquitetura Hexagonal**
+- **Node.js**
 
-📌 Diagrama da Arquitetura
+---
 
-![alt text](image.png)
-
-📌 Diagrama Geral do Sistema
-
-![alt text](image.png)
-
-🛠️ Tecnologias Utilizadas
-
-Next.js
-
-GraphQL
-
-NestJS (se aplicável ao backend GraphQL)
-
-TypeORM
-
-Docker / Docker Compose
-
-PostgreSQL
-
-Arquitetura Hexagonal
-
-🐘 Banco de Dados & Migrations
-
-As migrations são geradas e executadas usando o TypeORM v0.3+.
-
-➕ Criar nova migration
-npx typeorm migration:create migrations/CreateUser
-
-▶️ Executar migrations localmente
-npx typeorm migration:run
-
-▶️ Executar migrations dentro do container (modo build/produção)
-npx typeorm migration:run -d dist/shared/database/postgresql/datasource.js
-
-🐳 Docker
-
-O projeto utiliza Docker para subir:
-
-Aplicação Next.js
-
-Backend GraphQL
-
-PostgreSQL
-
-Adminer/PGAdmin (opcional)
-
-Para subir tudo:
-
-docker-compose up -d
-
-📁 Estrutura Básica (Hexagonal)
+## 📁 **Estrutura de Pastas (Hexagonal)**
 /src
- ├── domain
- │   ├── entities
- │   ├── repositories
- │   └── use-cases
- ├── application
- │   ├── services
- │   └── graphql
- ├── infrastructure
- │   ├── database
- │   ├── adapters
- │   └── config
- └── main.ts
+├── domain
+│ ├── entities
+│ ├── repositories
+│ └── use-cases
+├── application
+│ ├── graphql
+│ └── services
+├── infrastructure
+│ ├── database
+│ ├── adapters
+│ └── config
+└── main.ts
 
-🧩 GraphQL
 
-Você pode ter arquivos separados contendo:
+- **domain** → Regras de negócio puras  
+- **application** → Entrada/saída (GraphQL), validações  
+- **infrastructure** → Banco, repositórios, implementações  
+- **main** → Inicialização
 
-Queries
+---
 
-Mutations
+## 🐘 **Banco de Dados & Migrations**
 
-Types / DTOs
+As migrations são realizadas usando **TypeORM**.
 
-Resolvers
+### ➕ Criar uma nova migration
 
-Exemplo de mutation simples:
+```sh
+npx typeorm migration:create migrations/CreateUser
+```
 
-mutation {
-  createOneUser(data: {
-    name: "Lucas"
-    email: "lucas@example.com"
-  })
-}
+## 🎯 **Objetivo do Projeto**
 
-📦 Build & Execução
-🔧 Desenvolvimento
-npm install
-npm run dev
+  - Este projeto serve como base para estudo de:
+  - Arquitetura Hexagonal em Node.js
+  - Operações GraphQL
+  - Migrations em bancos SQL
+  - Deploy containerizado
+  - Boas práticas de modularização
 
-🚀 Produção
-npm run build
-npm start
-
-📑 Objetivo do Projeto
-
-Este projeto não é apenas uma aplicação, mas também um estudo completo envolvendo:
-
-Prática real com Hexagonal Architecture
-
-Integração com GraphQL
-
-Padrões profissionais de backend
-
-Deploy containerizado
-
-Banco relacional com migrations
-
-🧑‍💻 Autor
+## 👨‍💻 **Autor**
 
 Lucas Oliveira
-Projeto criado para fins de estudo e aprimoramento de arquitetura backend + GraphQL.
-
-
-
-
-
-
-
-
-
-
-
-
-
-O sistema tem como intuito estudo da arquitetura hexagonal e tambem uzo de graphql 
-
-O sistema é de controle financeiro utiliza next banco de dados postgres e as outras tecnologias ja sitadas
-
-tambem utilizamos docker e migrations para o banco de dados
-
-
-#Arquitetura
-![alt text](image.png)
-
-# Diagrama
-![alt text](image-1.png)
-
-# Adicionar Migration
-npx typeorm migration:create migrations/CreateUser 
-
-# Executar Migration
-npx typeorm migration:run
-
-# Executar Migration no container
-npx typeorm migration:run -d dist/shared/database/postgresql/datasource.js
-
-![alt text](<ChatGPT Image 22 de nov. de 2025, 15_20_59.png>)
+Projeto criado para estudo e aprimoramento de arquitetura backend + GraphQL.
